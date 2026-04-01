@@ -1,0 +1,433 @@
+/* --- 1. GLOBAL VARIABLES & RESET --- */
+:root {
+    --primary-blue: #0b4a8d;
+    --accent-blue: #00a8e8;
+    --cyan-btn: #00aeef;
+    --text-dark: #2d2d2d;
+    --text-light: #666;
+    --bg-light: #f8fafd;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* --- 2. NAVIGATION BAR --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+.nav-links a.active-link {
+    color: var(--primary-blue);
+    font-weight: 700;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* --- 3. HERO SECTION --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 8%;
+    gap: 3rem;
+    min-height: 85vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #083a71;
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* --- 4. INFORMATION CARDS (Mission/Vision) --- */
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem 8%;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.icon-circle {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- 5. EXPLORE CARDS (Icon fix here) --- */
+.info-card.explore {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.icon-box {
+    width: 70px; /* Controlled icon container size */
+    height: 70px;
+    margin-bottom: 2rem;
+}
+
+.icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevents icons from stretching */
+}
+
+.info-card.explore h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.info-card.explore p {
+    flex-grow: 1;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.link-arrow {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.link-arrow:hover {
+    transform: translateX(5px);
+}
+
+/* --- 6. FACILITIES GRID --- */
+.section-container {
+    padding: 6rem 8%;
+    text-align: center;
+}
+
+.bg-light { background-color: var(--bg-light); }
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    max-width: 800px;
+    margin: 0 auto 3.5rem;
+    color: var(--text-light);
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.facility-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.facility-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.facility-card p {
+    padding: 1.2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* --- 7. ORGANIZATION STRUCTURE (Portrait fix here) --- */
+.org-preview-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.org-profile-card {
+    background: var(--white);
+    width: 260px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.org-profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.org-profile-card.head {
+    width: 300px;
+    border: 2px solid var(--primary-blue);
+}
+
+.profile-img-container {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Professional Portrait Ratio */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* Keeps faces in frame */
+}
+
+.profile-info {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.org-profile-card.head .profile-info {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.profile-info strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.profile-info span {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.org-profile-card.head .profile-info span {
+    color: rgba(255,255,255,0.8);
+}
+
+.org-sub-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background: var(--cyan-btn);
+    color: var(--white);
+    padding: 14px 34px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 174, 239, 0.25);
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-blue);
+}
+
+/* --- 8. FOOTER --- */
+.footer {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 5rem 8% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-about h3 { margin-bottom: 1.5rem; font-size: 1.6rem; }
+.footer-about p { opacity: 0.8; font-size: 0.95rem; }
+
+.footer-links h4 { margin-bottom: 1.5rem; font-size: 1.1rem; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: var(--white); padding-left: 5px; }
+
+.footer-contact h4 { margin-bottom: 1.5rem; }
+.footer-contact input, .footer-contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    outline: none;
+}
+
+.btn-send {
+    background: var(--accent-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* --- 9. RESPONSIVE DESIGN (Hamburger) --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 4rem; }
+    .hero-content { margin-bottom: 3rem; }
+    .hero-image { justify-content: center; }
+    .hero-content h1 { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 1rem 5%; }
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+    
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 0; }
+    
+    .section-title { font-size: 2.2rem; }
+}
