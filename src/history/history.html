@@ -15,7 +15,14 @@
             <img src="../../assets/PICTURE RESOURCES/LOGO/Untitled design.png" alt="COS Logo">
             <span><p>College of Science</p></span>
         </div>
-        <ul class="nav-links">
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="../home/index.html">Home</a></li>
             <li><a href="history.html" class="active-link">History</a></li>
             <li><a href="../organization/organization.html">Organization</a></li>
@@ -190,7 +197,7 @@
                         <span class="f-icon">
                             <img src="../../assets/PICTURE RESOURCES/ICONS/location-icon.png" alt="Icon">
                         </span>
-                        <div class="f-text"><strong>Campus</strong><p>URS Morong</p></div>
+                        <div class="f-text"><strong>Campus</strong><p>University of Rizal System Morong Campus</p></div>
                     </div>
                 </div>
             </div>
@@ -224,5 +231,16 @@
         </div>
     </footer>
 
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('is-active');
+        });
+    </script>
+
 </body>
 </html>
+
