@@ -39,19 +39,19 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;           /* Spacing between logos and text */
+    gap: 12px;
     height: 100%;
 }
 
 /* Resize the actual logo image */
 .logo img {
-    height: 50px;       /* Set a fixed height that fits your navbar */
-    width: auto;         /* Keeps the aspect ratio perfect */
-    object-fit: contain; /* Ensures it doesn't stretch */
+    height: 50px;
+    width: auto;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-/* Optional: Add a slight hover effect like a pro site */
+/* Slight hover effect like a pro site */
 .logo img:hover {
     transform: scale(1.05);
     cursor: pointer;
@@ -59,7 +59,7 @@ body {
 
 /* Styling the "College of Science" text */
 .logo span p {
-    font-size: 1.1rem;
+    font-size: 1.1rem; 
     font-weight: 700;
     color: var(--primary-blue);
     line-height: 1;
