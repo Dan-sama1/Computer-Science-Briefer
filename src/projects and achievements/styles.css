@@ -28,53 +28,103 @@ body {
     padding: 0 20px;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Navigation (UPDATED TO MATCH INDEX) --- */
 header {
+    position: sticky;
+    top: 0;
+    background: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--white);
+    padding: 1rem 8%;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+    border-bottom: none; /* Removed to match index shadow style */
 }
 
+/* The wrapper for logos and text */
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    height: 100%;
 }
 
+/* The wrapper for just the images */
 .logo-group {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
+/* Sizing the actual logo images perfectly */
 .header-logo-placeholder {
-    width: 50px;
+    width: auto;
     height: 50px;
-    background-color: #e9ecef;
-    border-radius: 50%; 
-    overflow: hidden;
+    border-radius: 0; /* Removed circle constraint to match object-fit logic */
+    overflow: visible;
+    background: transparent;
+    display: flex;
+    align-items: center;
 }
 
 .header-logo-placeholder img {
-    width: 100%;
-    height: 100%;
+    height: 50px;
+    width: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.header-divider {
-    width: 1px;
-    height: 45px;
-    background-color: #cfd8dc;
-    margin: 0 4px;
+.header-logo-placeholder img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
+/* The vertical divider and text wrapper (Replaces .header-divider) */
 .college-name {
-    font-size: 1.4rem;
+    border-left: 2px solid #ddd;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    
+    /* Text styling */
+    font-size: 1.1rem; 
     font-weight: 700;
-    color: var(--brand-blue);
+    color: #0b4a8d; /* Forced to match index primary blue */
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* We hide the old standalone divider since it's now built into .college-name */
+.header-divider {
+    display: none;
+}
+
+nav {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    margin-left: 0; /* Resetting old margin */
+}
+
+nav a:hover {
+    color: #0b4a8d;
+}
+
+nav a.active {
+    color: #0b4a8d;
+    font-weight: 700;
+    pointer-events: none;
+    cursor: default;
 }
 
 /* Hamburger Menu Button (Hidden on Desktop) */
@@ -93,29 +143,11 @@ header {
 .mobile-menu-toggle span {
     width: 100%;
     height: 3px;
-    background-color: var(--brand-blue);
+    background-color: #0b4a8d;
     border-radius: 3px;
     transition: all 0.3s ease;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #4a4a4a;
-    margin-left: 36px;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-}
-
-nav a:hover, nav a.active {
-    color: var(--brand-blue);
-    font-weight: 700;
-}
 
 /* --- Main Typography --- */
 .page-header {
@@ -182,15 +214,22 @@ a.tab.active {
     overflow: hidden;
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Effect Prep */
+}
+
+/* Hover Effect for Project Cards */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
 .card-image {
     height: 220px;
     width: 100%;
+    object-fit: cover;
 }
 
 .card-image-placeholder {
-    
     height: 220px;
     background-color: #e9ecef;
     width: 100%;
@@ -252,6 +291,13 @@ a.tab.active {
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Effect Prep */
+}
+
+/* Hover Effect for Achievement Cards */
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
 .achievement-icon {
@@ -312,6 +358,13 @@ a.tab.active {
     padding: 24px;
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Effect Prep */
+}
+
+/* Hover Effect for Seminar Cards */
+.seminar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
 }
 
 .seminar-date-block {
@@ -523,15 +576,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Header layout for Hamburger Menu */
+    /* Responsive Updates based on new Index Navbar styling */
     header {
-        flex-direction: row;     
-        flex-wrap: wrap;         
-        padding: 16px 20px;
+        padding: 1rem 5%;
+        flex-wrap: wrap;
     }
     
     .brand-container {
-        flex-direction: row;
         flex: 1;                 
     }
     
@@ -539,34 +590,27 @@ footer {
         font-size: 1.1rem;       
     }
     
-    .header-logo-placeholder {
-        width: 40px;             
-        height: 40px;
-    }
-    
     .mobile-menu-toggle {
         display: flex;           
     }
 
-    /* Hidden Dropdown Nav */
+    /* Dropdown Nav matched to index behavior */
     nav {
         display: none;           
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        flex-direction: column;  
+        background: var(--white);
+        flex-direction: column;
+        padding: 2.5rem;
         text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
         gap: 24px;
-        padding-top: 24px;
-        margin-top: 16px;
-        border-top: 1px solid var(--border-color);
     }
     
     nav.active {
         display: flex;
-    }
-    
-    nav a {
-        margin-left: 0;
-        font-size: 1.1rem;
     }
 
     /* Page Header */
