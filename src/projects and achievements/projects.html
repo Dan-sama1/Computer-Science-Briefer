@@ -3,9 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projects - CS Briefer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>ORGANIZATION</h1>
+
+    <header>
+        <div class="brand-container">
+            <div class="logo-group">
+                <div class="header-logo-placeholder"></div>
+                <div class="header-logo-placeholder"></div>
+            </div>
+            <div class="header-divider"></div>
+            <div class="college-name">College of Science</div>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <a href="../home/index.html">Home</a>
+            <a href="../history/history.html">History</a>
+            <a href="../organization/organization.html">Organization</a>
+            <a href="#" class="active">Projects and Achievements</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-header">
+            <h1>Projects, Achievements & Seminars</h1>
+            <p>Showcasing our department's innovative projects, outstanding achievements, and educational seminars.</p>
+        </section>
+
+        <div class="tabs-container">
+            <a href="projects.html" class="tab active">Projects</a>
+            <a href="achievements.html" class="tab">Achievements</a>
+            <a href="seminars.html" class="tab">Seminars & Events</a>
+        </div>
+
+        <section class="projects-grid">
+            <div class="card">
+                <img src="../assets/PICTURE RESOURCES/pics/2023/2023/2023_cos_environmental_cleanup.jpg" alt="COS Environmental Cleanup Project" class="card-image" width="300" height="200">
+                <div class="card-content">
+                    <span class="badge badge-purple">Environmental Cleanup</span>
+                    <h3>2023 Environmental Cleanup Project</h3>
+                    <p>A community-driven initiative to clean up and beautify the campus and surrounding areas, promoting environmental awareness and sustainability.</p>
+                </div>
+            </div>
+                            
+             
+            <div class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge badge-green">Mobile Development</span>
+                    <h3>MorongCafe Mobile App</h3>
+                    <p>A mobile application connecting local cafes and students, featuring online ordering, payment integration, and delivery tracking.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge badge-orange">Data Science</span>
+                    <h3>Student Performance Analytics</h3>
+                    <p>A data analytics dashboard that visualizes student performance metrics, identifies at-risk students, and provides actionable insights for educators.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge badge-red">Cybersecurity</span>
+                    <h3>Network Security Monitor</h3>
+                    <p>A real-time network monitoring system that detects and prevents security threats, intrusions, and unauthorized access attempts.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge badge-cyan">Cloud Computing</span>
+                    <h3>Cloud Resource Manager</h3>
+                    <p>A platform for optimizing cloud resource allocation, cost management, and performance monitoring across multiple cloud providers.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>COMPUTER SCIENCE</h3>
+                <p>Educational and organizational hub for the Computer Science department at the University of Rizal System Morong Campus.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../home/index.html">Home</a></li>
+                    <li><a href="../history/history.html">History</a></li>
+                    <li><a href="../organization/organization.html">Organization</a></li>
+                    <li><a href="projects.html">Projects and Achievements</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <form>
+                    <input type="email" placeholder="Your email">
+                    <textarea placeholder="Your message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 College of Science, University of Rizal System Morong Campus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('nav');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
