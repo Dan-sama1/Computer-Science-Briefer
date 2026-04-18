@@ -199,6 +199,19 @@
     transition: 0.3s;
 }
 
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 4rem 0;
+}
+
+.timeline-row {
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    align-items: stretch; /* Fix for unequal vertical lines */
+}
+
 /* Logic for Tablet/Mobile View */
 @media (max-width: 900px) {
     .history-grid {
@@ -474,5 +487,16 @@
 
     .nav-links li {
         margin: 1rem 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .t-year {
+        width: 120px;
+        flex-shrink: 0;
+        border-right: 1px solid #eee;
+    }
+    .t-info {
+        flex-grow: 1;
     }
 }
