@@ -137,6 +137,44 @@ body {
 }
 
 /* ==========================================================================
+   TIPA HERO — Side-by-side layout
+   ========================================================================== */
+.tipa-hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6rem;
+  padding: 60px 0 40px;
+}
+
+.tipa-hero-content {
+  flex: 1;
+  max-width: 680px;
+  text-align: justify;
+}
+
+.tipa-hero-content h1 {
+  font-size: 70px;
+  color: #333;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.tipa-hero-content p {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.tipa-hero-image {
+  flex-shrink: 0;
+}
+
+.tipa-hero-image img {
+  width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+/* ==========================================================================
            SECTION TITLES & GRID LAYOUTS
            ========================================================================== */
 .section-title {
@@ -402,6 +440,41 @@ body {
   outline-offset: 2px;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 168, 232, 0.4);
+}
+
 /* ==========================================================================
            FOOTER STYLES
            ========================================================================== */
@@ -584,5 +657,19 @@ body {
 
   .banner {
     padding: 40px 15px;
+  }
+
+  .tipa-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .tipa-hero-content {
+    max-width: 100%;
+  }
+  .tipa-hero-content h1 {
+    font-size: 40px;
+  }
+  .tipa-hero-image img {
+    width: 180px;
   }
 }
