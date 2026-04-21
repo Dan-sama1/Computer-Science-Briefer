@@ -229,6 +229,12 @@ a.tab.active {
     object-fit: cover;
 }
 
+.card-image-p {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .card-image-placeholder {
     height: 220px;
     background-color: #e9ecef;
