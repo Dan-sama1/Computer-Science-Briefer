@@ -28,7 +28,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- Header & Navigation (UPDATED TO MATCH INDEX) --- */
+/* --- Header & Navigation (Matches Index) --- */
 header {
     position: sticky;
     top: 0;
@@ -39,10 +39,9 @@ header {
     padding: 1rem 8%;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     z-index: 1000;
-    border-bottom: none; /* Removed to match index shadow style */
+    border-bottom: none; 
 }
 
-/* The wrapper for logos and text */
 .brand-container {
     display: flex;
     align-items: center;
@@ -50,18 +49,16 @@ header {
     height: 100%;
 }
 
-/* The wrapper for just the images */
 .logo-group {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* Sizing the actual logo images perfectly */
 .header-logo-placeholder {
     width: auto;
     height: 50px;
-    border-radius: 0; /* Removed circle constraint to match object-fit logic */
+    border-radius: 0; 
     overflow: visible;
     background: transparent;
     display: flex;
@@ -80,23 +77,19 @@ header {
     cursor: pointer;
 }
 
-/* The vertical divider and text wrapper (Replaces .header-divider) */
 .college-name {
     border-left: 2px solid #ddd;
     padding-left: 12px;
     display: flex;
     align-items: center;
     height: 40px;
-    
-    /* Text styling */
     font-size: 1.1rem; 
     font-weight: 700;
-    color: #0b4a8d; /* Forced to match index primary blue */
+    color: #0b4a8d; 
     line-height: 1;
     white-space: nowrap;
 }
 
-/* We hide the old standalone divider since it's now built into .college-name */
 .header-divider {
     display: none;
 }
@@ -113,7 +106,7 @@ nav a {
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.3s ease;
-    margin-left: 0; /* Resetting old margin */
+    margin-left: 0; 
 }
 
 nav a:hover {
@@ -214,10 +207,9 @@ a.tab.active {
     overflow: hidden;
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Effect Prep */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* Hover Effect for Project Cards */
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
@@ -297,10 +289,9 @@ a.tab.active {
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     align-items: flex-start;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Effect Prep */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* Hover Effect for Achievement Cards */
 .achievement-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
@@ -348,113 +339,96 @@ a.tab.active {
     font-weight: 500;
 }
 
-/* --- Seminars List (seminars.html) --- */
+/* --- Seminars Grid & Cards (seminars.html) --- */
 .seminars-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
     margin-bottom: 80px;
 }
 
 .seminar-card {
-    display: flex;
-    align-items: center;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 24px;
+    border-radius: 16px;
+    overflow: hidden;
     background: var(--white);
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-
-/* Hover Effect for Seminar Cards */
-.seminar-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-}
-
-.seminar-date-block {
-    background-color: var(--brand-blue);
-    color: var(--white);
-    border-radius: 12px;
-    width: 80px;
-    height: 95px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-right: 24px;
 }
 
-.date-month {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.seminar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-.date-day {
-    font-size: 1.8rem;
-    font-weight: 800;
-    line-height: 1;
-    margin: 2px 0 4px 0;
+.seminar-image-container {
+    position: relative;
+    height: 410px;
+    width: 100%;
+    background-color: #e9ecef;
 }
 
-.date-year {
+.seminar-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seminar-date-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.badge-month {
     font-size: 0.75rem;
-    font-weight: 400;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-day {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 2px 0;
+}
+
+.badge-year {
+    font-size: 0.75rem;
     opacity: 0.9;
 }
 
 .seminar-content {
+    padding: 24px;
     flex-grow: 1;
-}
-
-.seminar-content h3 {
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-}
-
-.speaker-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-
-
-.speaker-details {
     display: flex;
     flex-direction: column;
 }
 
-.speaker-name {
-    font-weight: 600;
-    font-size: 0.95rem;
+.seminar-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
     color: var(--text-dark);
 }
 
-.speaker-role {
-    font-size: 0.85rem;
+.seminar-content p {
+    font-size: 0.95rem;
     color: var(--text-muted);
+    line-height: 1.5;
 }
 
-.btn-register {
-    background-color: var(--accent-cyan);
-    color: var(--white);
-    border: none;
-    padding: 10px 24px;
-    border-radius: 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-register:hover {
-    background-color: #00a5bb;
-}
 
 /* --- Footer --- */
 footer {
@@ -561,7 +535,7 @@ footer {
    ================================================== */
 
 @media (max-width: 1024px) {
-    .projects-grid {
+    .projects-grid, .seminars-list {
         grid-template-columns: repeat(2, 1fr);
     }
     .achievements-grid {
@@ -626,7 +600,7 @@ footer {
     }
 
     /* Grids to 1 Column */
-    .projects-grid {
+    .projects-grid, .seminars-list {
         grid-template-columns: 1fr;
     }
 
@@ -641,21 +615,6 @@ footer {
         max-width: 264px; 
         height: auto;
         aspect-ratio: 1; 
-    }
-
-    /* Seminars Layout */
-    .seminar-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 16px;
-    }
-    .seminar-date-block {
-        margin-right: 0;
-    }
-    .speaker-info {
-        justify-content: center;
-        flex-direction: column;
-        gap: 8px;
     }
 
     /* Footer Stack */
