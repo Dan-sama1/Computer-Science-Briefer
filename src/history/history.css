@@ -1,0 +1,502 @@
+/* --- 1. HISTORY PAGE LAYOUT --- */
+.history-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 280px; /* Sidebar | Content | Facts */
+    gap: 4rem;
+    padding: 4rem 8%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- 2. STICKY SIDEBARS --- */
+.sidebar-left, .sidebar-right {
+    position: relative;
+}
+
+.sticky-nav-card, .sticky-fact-card {
+    position: sticky;
+    top: 100px; /* Sits below the sticky navbar */
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.sticky-nav-card h3, .sticky-fact-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sticky-nav-card ul { list-style: none; }
+.sticky-nav-card li { margin-bottom: 1rem; }
+.sticky-nav-card a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+.sticky-nav-card a:hover { color: var(--primary-blue); }
+
+/* --- 3. MAIN CONTENT AREA --- */
+.history-content h1 { font-size: 3.5rem; color: var(--text-dark); }
+.intro-lead { font-size: 1.25rem; color: var(--text-light); margin: 1.5rem 0 4rem; }
+.history-content h2 { font-size: 2.2rem; margin: 3.5rem 0 1.5rem; color: var(--primary-blue); }
+.history-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #444; }
+
+/* Lists and Timeline */
+.history-list { margin: 1.5rem 0 2rem 1.5rem; }
+.history-list li { margin-bottom: 0.8rem; color: #444; }
+
+.timeline-item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #eee;
+}
+.timeline-item strong { color: var(--primary-blue); display: block; margin-bottom: 0.3rem; }
+
+/* --- 4. OFFICIAL MEMORANDUM BOX --- */
+.official-memo-card {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-left: 5px solid var(--primary-blue);
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin: 3rem 0;
+}
+
+.memo-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+.memo-title h3 { font-size: 1.2rem; margin: 0; color: var(--text-dark); }
+.memo-title p { margin: 0; font-size: 0.85rem; color: var(--text-light); }
+
+.memo-body blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.memo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.memo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- 5. DEANS TIMELINE STYLE --- */
+.deans-timeline {
+    margin-top: 2rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.timeline-row {
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.3s ease;
+    align-items: stretch; /* This ensures both columns are always the same height */
+}
+
+.timeline-row:last-child { border-bottom: none; }
+.timeline-row:hover { background-color: #fcfdfe; }
+
+.t-year {
+    width: 140px; /* Adjusted for mobile space */
+    padding: 1.2rem;
+    background-color: #f9fbff;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 0.85rem; /* Slightly smaller for mobile */
+    display: flex;
+    align-items: center; /* Vertically centers the years */
+    justify-content: center; /* Horizontally centers the years */
+    text-align: center;
+    border-right: 1px solid #eee; /* This creates your vertical line */
+    flex-shrink: 0; /* Prevents the left side from getting squashed */
+}
+
+.t-info {
+    padding: 1.2rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center; /* Vertically centers the Dean's name */
+    flex-grow: 1; /* Takes up the remaining space */
+}
+
+.timeline-row.current { background-color: #f0f7ff; }
+.timeline-row.current .t-year { background-color: var(--primary-blue); color: white; }
+
+/* --- 6. QUICK FACTS SIDEBAR --- */
+.fact-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.f-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.f-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.fact-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.f-text strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.f-text p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* --- 7. RESPONSIVE HAMBURGER NAVIGATION --- */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 4rem 0;
+}
+
+.timeline-row {
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    align-items: stretch; /* Fix for unequal vertical lines */
+}
+
+/* Logic for Tablet/Mobile View */
+@media (max-width: 900px) {
+    .history-grid {
+        grid-template-columns: 1fr; /* Single column */
+        padding: 2rem 5%;
+    }
+
+    .sidebar-left, .sidebar-right {
+        display: none; /* Hide sidebars to save space */
+    }
+
+    .navbar {
+        padding: 1rem 5%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Hidden unless .active is toggled via JS */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        z-index: 2000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}/* --- 1. HISTORY PAGE LAYOUT --- */
+.history-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 280px; /* Sidebar | Content | Facts */
+    gap: 4rem;
+    padding: 4rem 8%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- 2. STICKY SIDEBARS --- */
+.sidebar-left, .sidebar-right {
+    position: relative;
+}
+
+.sticky-nav-card, .sticky-fact-card {
+    position: sticky;
+    top: 100px; /* Sits below the sticky navbar */
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.sticky-nav-card h3, .sticky-fact-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sticky-nav-card ul { list-style: none; }
+.sticky-nav-card li { margin-bottom: 1rem; }
+.sticky-nav-card a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+.sticky-nav-card a:hover { color: var(--primary-blue); }
+
+/* --- 3. MAIN CONTENT AREA --- */
+.history-content h1 { font-size: 3.5rem; color: var(--text-dark); }
+.intro-lead { font-size: 1.25rem; color: var(--text-light); margin: 1.5rem 0 4rem; }
+.history-content h2 { font-size: 2.2rem; margin: 3.5rem 0 1.5rem; color: var(--primary-blue); }
+.history-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #444; }
+
+/* Lists and Timeline */
+.history-list { margin: 1.5rem 0 2rem 1.5rem; }
+.history-list li { margin-bottom: 0.8rem; color: #444; }
+
+.timeline-item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #eee;
+}
+.timeline-item strong { color: var(--primary-blue); display: block; margin-bottom: 0.3rem; }
+
+/* --- 4. OFFICIAL MEMORANDUM BOX --- */
+.official-memo-card {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-left: 5px solid var(--primary-blue);
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin: 3rem 0;
+}
+
+.memo-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+.memo-title h3 { font-size: 1.2rem; margin: 0; color: var(--text-dark); }
+.memo-title p { margin: 0; font-size: 0.85rem; color: var(--text-light); }
+
+.memo-body blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.memo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.memo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- 5. DEANS TIMELINE STYLE --- */
+.deans-timeline {
+    margin-top: 2rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.timeline-row {
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.3s ease;
+}
+
+.timeline-row:last-child { border-bottom: none; }
+.timeline-row:hover { background-color: #fcfdfe; }
+
+.t-year {
+    width: 180px;
+    padding: 1.2rem;
+    background-color: #f9fbff;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #eee;
+}
+
+.t-info {
+    padding: 1.2rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+.timeline-row.current { background-color: #f0f7ff; }
+.timeline-row.current .t-year { background-color: var(--primary-blue); color: white; }
+
+/* --- 6. QUICK FACTS SIDEBAR --- */
+.fact-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.f-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.f-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.fact-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.f-text strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.f-text p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* --- 7. RESPONSIVE HAMBURGER NAVIGATION --- */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Logic for Tablet/Mobile View */
+@media (max-width: 900px) {
+    .history-grid {
+        grid-template-columns: 1fr; /* Single column */
+        padding: 2rem 5%;
+    }
+
+    .sidebar-left, .sidebar-right {
+        display: none; /* Hide sidebars to save space */
+    }
+
+    .navbar {
+        padding: 1rem 5%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Hidden unless .active is toggled via JS */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        z-index: 2000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .t-year {
+        width: 120px;
+        flex-shrink: 0;
+        border-right: 1px solid #eee;
+    }
+    .t-info {
+        flex-grow: 1;
+    }
+}
